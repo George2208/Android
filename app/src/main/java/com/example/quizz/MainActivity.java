@@ -34,9 +34,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.quizz.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
     private AppBarConfiguration mAppBarConfiguration;
-    private NavigationView navigationView;
     private SharedPreferences sharedPreferences = null;
 
     @Override
@@ -80,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
         SwitchCompat switchCompat = navigationView.getMenu().findItem(R.id.nav_dark_mode).getActionView().findViewById(R.id.toggle);
         sharedPreferences = getSharedPreferences("night", 0);
-        Boolean booleanValue = sharedPreferences.getBoolean("night_mode", true);
+        boolean booleanValue = sharedPreferences.getBoolean("night_mode", true);
 
         if (booleanValue) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -116,14 +114,12 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.item_share) {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Share option");
             sendIntent.setType("text/plain");
-
             Intent shareIntent = Intent.createChooser(sendIntent, null);
             startActivity(shareIntent);
-        } else {
-            return super.onOptionsItemSelected(item);
-        }
+        } else return super.onOptionsItemSelected(item);
+
         return true;
     }
 

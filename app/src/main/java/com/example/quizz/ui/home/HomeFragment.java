@@ -37,19 +37,12 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
         LinearLayout div = root.findViewById(R.id.div);
         RecyclerView mRecyclerView = root.findViewById(R.id.recycleView);
-
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
-                    if(mRecyclerView.SCROLL_STATE_IDLE == newState) {
-                        if(direction <= 0)
-                            div.setVisibility(View.VISIBLE);
-                        else
-                            direction = 0;
-                            div.setVisibility(View.GONE);
-                    }
+                    div.setVisibility(direction <= 0 ? View.VISIBLE : View.GONE);
             }
 
             @Override

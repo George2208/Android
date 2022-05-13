@@ -36,8 +36,8 @@ public class QuestionAdaptor extends RecyclerView.Adapter<QuestionAdaptor.ViewHo
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void filterList(ArrayList<QuestionModel> filterllist) {
-        courseModalArrayList = filterllist;
+    public void filterList(ArrayList<QuestionModel> filterlist) {
+        courseModalArrayList = filterlist;
         this.notifyDataSetChanged();
     }
 

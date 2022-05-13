@@ -8,7 +8,7 @@ import java.util.List;
 public class QuestionModel {
     private final String question;
     private final List<Pair<String, Boolean>> answers;
-    private TextView score;
+    private final TextView score;
 
     public QuestionModel(String question, List<Pair<String, Boolean>>  answers, TextView score) {
         this.question = question;
